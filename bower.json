@@ -1,0 +1,23 @@
+{
+  "name": "LiveBets",
+  "homepage": "https://github.com/MarcksPlayGround/sportsbet_backoffice",
+  "authors": [
+    "SilverOrbit <johnmark@silverorbit.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "bootstrap-validator": "^0.11.9"
+  }
+}

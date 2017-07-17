@@ -1,0 +1,180 @@
+1. makita sa backoffice admin ang tanan nga players ni specific agent
+kag ang gin bet ya.
+
+
+
+2. PPV event dapat may ppv link
+
+
+3. Need ta man gali maka change sng fighter betting odds.  ara na sya ya sa event_fighter_odds nga table.
+
+
+
+4. Agent set bets for their own players
+
+
+
+5. We can create a match , then define the odds for fighter.
+
+Fighers Odds, we can set odds,
+  event_fighter_odds table.
+
+6. Fighter Odds can be open/close.
+
+
+7. Hmm, on table player, player.agent_id = 1 means a player is under agent with id =1.
+
+The agent_to_players table is for the lookup only how much credit balance is set by agent to a player.
+
+agent_to_players table will set value for it's field as players.player_id, and agent.agent_id where agent can set max credit balance. Each agent can set different credit balance to his players.
+
+
+8, Missing remittance tab which is almost the same as Banks but instead has remit_center, remit_dep_trans etc. Also show Remittance deposits in deposits tab
+
+
+9. Receipt image must be displayed when updating deposit 
+Bank deposits are found in uploads/ while remit deposits are found in uploads_remit/
+
+
+
+
+
+
+
+
+pag nagbet na sya sa fighter
+
+[8:08]  
+i mean si agent pagnag bet sa fighter as representative sng player,  mahulat ka lg sng match
+
+[8:09]  
+then after the match mabalik lng na sya sa credit balance
+
+[8:09]  
+ang credit balance nga column is the credit_bal field in the balance table.
+
+[8:10]  
+wala ko pa natapos ang trigger for agent because ga error magdump
+
+[8:10]  
+ma automatic compute na sya
+
+[8:10]  
+btw dapat affiliate code ang isulod sa field nga agentid
+
+[8:11]  
+matulog ko anay em. pwde mo ma discuss si sir mo rodney
+
+[8:11]  
+heheheh na brief ko na to sya
+
+[8:11]  
+btw matulog nako. you can ask for help sa isa natun da ka tester
+
+[8:11]  
+kg gusto mo magpabulog testing
+
+[8:12]  
+hambala lng si sir mo cocoy. ma assign na sya sa imo tawo magbulig testing
+
+[8:12]  
+thanks gd em..  mabulig gid da team ta sa bcd if u need help.
+
+
+
+
+
+* pag create sang player. dapat ang unod ka agent_id nga column is affiliate code sang player, sa agents portal 
+
+
+
+*ppv_events makaedit sya through this table
+
+
+
+
+*  bale sa form ko is , ma select ko danay event para mka create ppv event, ppv event under sa isa ka event.
+
+
+
+
+
+
+* 
+
+
+
+
+
+1.  when create a player
+      affiliate code =
+
+  player.agent_id  = affiliate_code
+
+
+(DONE)
+
+
+
+2. How can an agent as representative for a player?
+    A representative can set bets different matches for a player.
+
+
+
+
+3. If agent set credit limit of player, goes to credit_balance (not
+cash_balance this is player deposit directly)
+   If player has agent, wins/loss goes to credit_balance.
+(PENDING)
+
+
+
+
+
+=====
+4. We can create a match , then define the odds for fighter.
+
+Fighers Odds, we can set odds,
+  event_fighter_odds table.
+
+
+(PENDING)
+
+
+bale ang gwa ni agent  sya maset bets sang players niya.
+
+[8:54]  
+ex. player1  -- bet sya nya sa match1, match2, match3.
+
+[8:55]  
+player1 assumed not computer literate only a capitalist/bettor
+
+[8:55]  
+that's why may agent sila
+
+
+
+
+
+https://winscp.net/eng/docs/ui_login_authentication
+
+
+
+
+
+Access
+---------------------
+https://backdev1.livebets888.com/app/login
+WINSCP
+hostname : dev1.livebets888.com
+username : ubuntu
+pwd : [use key pair]
+
+
+
+Database
+-----------------------
+username : sportsuser
+pwd : sportsPa55
+database : sportsbettingdb2
+
