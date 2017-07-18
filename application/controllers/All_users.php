@@ -1,4 +1,4 @@
-<?php  defined('BASEPATH') or die('No direct script access allowed');
+<?php defined('BASEPATH') or die('No direct script access allowed');
 
 class All_users extends MY_Controller{
 
@@ -41,7 +41,6 @@ class All_users extends MY_Controller{
 
 				]);	
 			$vars['users'] = $this->table->generate($data);
-			//print_r($all_users);
 
 		 $this->load->view('admin/template',array_merge([
 			'page_title' => 'ALL USERS',
@@ -58,7 +57,7 @@ class All_users extends MY_Controller{
 			$users = $this->All_users_model->get($id);	
 
 			$vars['user_info'] = $users;
-			//print_r($users);
+			
 		}
 		
 		 $this->load->view('admin/template',array_merge([
@@ -66,7 +65,6 @@ class All_users extends MY_Controller{
 			'view' => 'admin/pages/all_users/edit'
 		],$vars));
 	}
-
 	function delete($id = 0){
 
 		if ($id > 0) {
@@ -98,13 +96,9 @@ class All_users extends MY_Controller{
 					]);
 			}
 			$this->Common_model->delete($id);
-				
-			
-			//print_r($data);
-			//$insert = $this->Common_model->insert('deleted_users',[]);
-
-			message('success','User has been deleted successfully');
 			redirect('All_users');
+			message('success','User has been deleted successfully');
+			
 		}
 
 	}

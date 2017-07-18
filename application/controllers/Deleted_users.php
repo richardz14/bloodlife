@@ -1,7 +1,6 @@
-<?php  defined('BASEPATH') or die('No direct script access allowed');
+<?php defined('BASEPATH') or die('No direct script access allowed');
 
 class Deleted_users extends MY_Controller{
-
 
 	function __construct(){
 		parent:: __construct();
@@ -10,7 +9,6 @@ class Deleted_users extends MY_Controller{
 
 		$this->load->model('Deleted_model');
 	}
-
 
 	function index(){
 		$vars = array();
@@ -91,6 +89,5 @@ class Deleted_users extends MY_Controller{
 		}
 
 	}
-
 
 }
