@@ -32,4 +32,18 @@ class Common_model extends CI_Model{
 		return array();
 	}	
 	
+	function get($id = 0){
+		if ($id > 0) {
+		$query = $this->db->select()
+			->where('id',$id)
+            ->get('person_info');
+
+		if($query->num_rows() > 0)
+			return $query->result();
+
+		return array();
+		}
+
+	}	
+
 }
