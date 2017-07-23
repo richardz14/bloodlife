@@ -32,7 +32,7 @@ class All_users extends MY_Controller{
 					},function($data){
 					return '<img src="data:image/gif;base64,'.$data->image.'" class="img-thumbnail" width="80">';
 					},function($data){
-						$out =  '<a href="'.site_url('All_users/edit/'.$data->id).'" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span> Edit </a>
+						$out =  '<a href="'.site_url('All_users/edit/'.$data->id).'" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span> Edit Location </a>
 
                         <a href="'.site_url('All_users/delete/'.$data->id).'" class="btn btn-xs btn-danger confirm-btn" data-confirm-text="Are you sure you want to delete this user?"><span class="glyphicon glyphicon-eye-close"></span> Delete </a>
                         ';
@@ -55,9 +55,31 @@ class All_users extends MY_Controller{
 		if ($id > 0) {
 
 			$users = $this->All_users_model->get($id);	
-
 			$vars['user_info'] = $users;
-			
+
+			$this->form_validation->set_rules('lat','Latitude','required')
+			->set_rules('long','Longitude','required');
+
+			if($this->form_validation->run()){
+				$lat = $this->input->post('lat');
+			    $long = $this->input->post('long');
+
+			    $update = $this->Common_model->update('person_info',[	
+			    	'lat' => $lat,
+					'long' => $long
+			    	],[
+					'id' => $id
+				]);
+
+			    if($update){
+					message('success','Location has been updated successfully');
+					redirect(current_url());
+				}else{
+				message('danger','Failed to update Location. Please try again');
+				redirect(current_url());
+
+				}
+			}
 		}
 		
 		 $this->load->view('admin/template',array_merge([
@@ -65,6 +87,7 @@ class All_users extends MY_Controller{
 			'view' => 'admin/pages/all_users/edit'
 		],$vars));
 	}
+
 	function delete($id = 0){
 
 		if ($id > 0) {

@@ -13,6 +13,16 @@ class All_users_model extends CI_Model{
 		return array();
 	}	
 
+		function get_all_log(){
+		$query = $this->db->select()
+            ->get('person_info_log');
+
+		if($query->num_rows() > 0)
+			return $query->result();
+
+		return array();
+	}	
+
 		function get($id = 0){
 
 			if ($id > 0) {
