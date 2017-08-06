@@ -5,16 +5,23 @@ class Dashboard extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 
-		if(!$this->session->userdata('sb_auth'))
+				if(!$this->session->userdata('sb_auth'))
 			redirect('app/login');
+		
+		$this->load->model('Person_model');
 	}
 
 
 	function index(){ 
-		$this->load->view('admin/template',[
+			$var =array();
+		$var['count_users'] = $this->Person_model->count_all_users();
+			$var['deleted_users'] = $this->Person_model->count_delete_users();
+	//print_r($all_users);die();
+
+		$this->load->view('admin/template',array_merge([
 			'page_title' => 'Dashboard',
 			'view' => 'admin/pages/dashboard'
-		]);
+		],$var));
 	}
    
     // This is for debugging purposes only
